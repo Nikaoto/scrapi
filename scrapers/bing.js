@@ -13,6 +13,7 @@ const scrape = (query) => {
 
     bing.image(query).then(res => {
       res.forEach(el => log(el.mediaurl))
+      
       return resolve(res)
     })
   })

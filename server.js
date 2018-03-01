@@ -4,7 +4,7 @@ const cors = require("cors")
 
 const scrapeBing = require("./scrapers/bing")
 
-const PORT = process.env.PORT || 1000
+const PORT = process.env.PORT || 2000
 const server = express()
 
 server.use(bodyParser.json())
