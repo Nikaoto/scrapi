@@ -43,14 +43,14 @@ server.get("/download", ({ query }, res) => {
 
   const options = { 
     url: query.url, 
-    dest: "/downloads/"+fileName
+    dest: __dirname + "/downloads"
   }
 
   download.image(options)
     .then(({ filename, image }) => {
       console.log("Image saved to", __dirname + filename)
 
-      res.json({ url: "localhost:"+PORT+filename })
+      res.json({ url: DOMAIN+filename })
     }).catch(err => console.log(err))
 
 })
