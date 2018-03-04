@@ -5,8 +5,12 @@ const cors = require("cors")
 
 const scrapeBing = require("./scrapers/bing")
 
+const devMode = true
+
 const PORT = process.env.PORT || 2000
+const DOMAIN = devMode ? "https://localhost:"+PORT : "https://scr-api.herokuapp.com:"+PORT
 const server = express()
+
 
 server.use(express.static(__dirname + "/downloads"))
 server.use(bodyParser.json())
@@ -45,8 +49,8 @@ server.get("/download", ({ query }, res) => {
   download.image(options)
     .then(({ filename, image }) => {
       console.log("Image saved to", __dirname + filename)
-      
-      res.json({ url: __dirname + "/downloads" })
+
+      res.json({ url: "localhost:"+PORT+filename })
     }).catch(err => console.log(err))
 
 })
