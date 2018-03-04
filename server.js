@@ -1,5 +1,7 @@
 const express = require("express")
+const path = require("path")
 const bodyParser = require("body-parser")
+const fs = require("fs")
 const download = require("image-downloader")
 const cors = require("cors")
 
@@ -11,8 +13,12 @@ const PORT = process.env.PORT || 2000
 const DOMAIN = devMode ? "https://localhost:"+PORT : "https://scr-api.herokuapp.com:"+PORT
 const server = express()
 
+// Create downloads folder
+if (!fs.existsSync("./downloads")) {
+  fs.mkdirSync("./downloads")
+}
 
-server.use(express.static(__dirname + "/downloads"))
+server.use(express.static(path.join(__dirname, "downloads")))
 server.use(bodyParser.json())
 server.use(cors())
 
@@ -43,14 +49,14 @@ server.get("/download", ({ query }, res) => {
 
   const options = { 
     url: query.url, 
-    dest: __dirname + "/downloads"
+    dest: path.join(__dirname, "downloads")
   }
 
   download.image(options)
     .then(({ filename, image }) => {
-      console.log("Image saved to", __dirname + filename)
+      console.log("Image saved to", path.join(__dirname, filename))
 
-      res.json({ url: DOMAIN+filename })
+      res.json({ url: path.join(DOMAIN, filename) })
     }).catch(err => console.log(err))
 
 })
