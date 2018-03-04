@@ -54,9 +54,9 @@ server.get("/download", ({ query }, res) => {
 
   download.image(options)
     .then(({ filename, image }) => {
-      console.log("Image saved to", path.join(__dirname, filename))
+      console.log("Image saved to", filename)
 
-      res.json({ url: path.join(DOMAIN, filename) })
+      res.json({ url: filename })
     }).catch(err => console.log(err))
 
 })
