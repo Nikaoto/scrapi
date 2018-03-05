@@ -67,7 +67,7 @@ const getS3Url = (fileKey) => `https://s3.${AWS_REGION}.amazonaws.com/${S3_BUCKE
 server.get("/download", ({ query }, res) => {
   console.log("GET /download :", query)
   //const fileName = query.url.replace(/\/|:/g, "")
-  const imageKey = query.url
+  const imageKey = encodeURIComponent(query.url)
   console.log("imageKey:", imageKey)
 
 
