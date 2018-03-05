@@ -10,9 +10,10 @@
   "author": "Nikaoto",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.5.1",
+    "aws-sdk": "^2.205.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
     "express": "^4.16.2",
     "image-downloader": "^3.3.0",
     "nodejs-bing": "^0.1.0",
