@@ -28,6 +28,7 @@ app.get("/images", ({ query }, response) => {
     const results = scrapeResult.slice(0, max).map(res =>
       ({
         url: res.mediaurl,
+        thumbnailUrl: res.mediaurl,
         title: res.title,
         source: res.link,
         info: res.size
