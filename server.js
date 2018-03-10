@@ -43,7 +43,8 @@ app.get("/images", ({ query }, response) => {
   })
 })
 
-app.get("/images-2", (req, response) => {
+// Will soon be removed
+app.get("/images-bing-api", (req, response) => {
   fetch(linkFromQuery(req.query.query), fetchOptions)
   .then(res => res.json())
   .then(res => {
