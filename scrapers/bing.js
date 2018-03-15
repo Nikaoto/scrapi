@@ -1,10 +1,9 @@
 const bing = require("nodejs-bing")
-const Promise = require("bluebird")
 
-const debugMode = false
+const DEV_MODE = (process.env.NODE_ENV !== "production") 
 
 function log(str) {
-  return debugMode ? console.log(str) : null
+  return DEV_MODE ? console.log(str) : null
 }
 
 const scrape = (query) => {
