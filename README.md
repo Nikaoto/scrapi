@@ -1,12 +1,12 @@
 # Scrapi
-Scraping API for [Slami](https://github.com/Nikaoto/slami-react)
+Scraping API for [Slami](https://github.com/Nikaoto/slami-react) that traverses Bing Images and returns relevant images. 
 
 # Endpoints
 Heroku endpoint: https://scr-api.herokuapp.com/
 
 Default local endpoint: http://localhost:2000/
 
-# Sending image requests
+# Sending image scrape requests
 
 Route `/images` takes a GET request and a query object with `query` for the image search.
 
@@ -28,7 +28,7 @@ The returned JSON should look like this:
 }
 ```
 
-# Sending proxy CORS requests
+# Sending proxy requests
 
 Route `/proxy` takes a GET request and a query obj with `url` as the image URL.
 
@@ -41,3 +41,5 @@ Returns a stream of the image with given URL.
 
 # Note
 The server has full CORS enabled
+
+The scrapper is made with [Cheerio](https://cheerio.js.org/) -> https://github.com/buchin/nodejs-bing
