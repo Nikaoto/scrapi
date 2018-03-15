@@ -44,4 +44,3 @@ Returns a stream of the image with given URL.
 The server has full CORS enabled
 
 The scrapper is made with [Cheerio](https://cheerio.js.org/) -> https://github.com/buchin/nodejs-bing
->>>>>>> f7fb4abc8662f7a75648433d17e88114744efd0a
